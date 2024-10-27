@@ -1,6 +1,6 @@
 name: simple_pipeline
 
-on: [workflow dispatch]
+on: [workflow_dispatch]
 
 jobs:
   run-js-test:
