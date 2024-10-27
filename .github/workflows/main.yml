@@ -1,25 +1,23 @@
 name: simple_pipeline
 
-on: push
+on: [workflow dispatch]
 
 jobs:
-  build:
+  run-js-test:
+    runs-on: ubuntu-latest
 
-  runs-on: ubuntu-24.04
+    steps:
+    - name: Checkout 
+      uses: actions/checkout@v3
 
-  steps:
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with: 
+        node-version: '20'
 
-  - name: Checkout 
-  uses: actions/checkout@v3
+   - name: Install dependencies
+     run: npm install jest
 
-  - name: Setup Node.js
-  uses: actions/setup-node@v3
-  with: 
-      node-version: '22.6.0'
-
-  - name: Install dependencies
-    run: npm install jest
-
- - name: Run tests
-   run: test
+   - name: Run tests
+     run: npm jest
    
