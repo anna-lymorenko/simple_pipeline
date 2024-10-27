@@ -3,21 +3,21 @@ name: simple_pipeline
 on: [workflow_dispatch]
 
 jobs:
-  run-js-test:
+  my_job:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout 
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with: 
         node-version: '20'
 
-   - name: Install dependencies
-     run: npm install jest
+    - name: Install dependencies
+      run: npm install jest
 
-   - name: Run tests
-     run: npm jest
+    - name: Run tests
+      run: npm jest
    
